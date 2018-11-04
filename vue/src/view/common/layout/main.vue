@@ -4,20 +4,46 @@
             <el-col :span="24">
                 <el-menu class="el-menu-demo" mode="horizontal"
                     background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" router="true">
-                    <el-menu-item index="/home">处理中心</el-menu-item>
+                    <el-menu-item index="/home">仪表盘</el-menu-item>
                     <el-submenu index="2">
-                        <template slot="title">我的工作台</template>
-                        <el-menu-item index="2-1">控制台</el-menu-item>
-                        <el-menu-item index="2-2">SVN控制</el-menu-item>
-                        <el-menu-item index="2-3">SQL控制</el-menu-item>
-                        <el-submenu index="2-4">
-                            <template slot="title">选项4</template>
-                            <el-menu-item index="2-4-1">选项1</el-menu-item>
-                            <el-menu-item index="2-4-2">选项2</el-menu-item>
-                            <el-menu-item index="2-4-3">选项3</el-menu-item>
+                        <template slot="title">CRM模块</template>
+                        <el-submenu index="/lead">
+                            <template slot="title">线索管理</template>
+                            <el-menu-item index="/query">线索查询</el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="/customer">
+                            <template slot="title">客户管理</template>
+                            <el-menu-item index="/query">客户查询</el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="/chance">
+                            <template slot="title">机会管理</template>
+                            <el-menu-item index="/query">机会查询</el-menu-item>
+                        </el-submenu>
+                        <el-submenu index="/contract">
+                            <template slot="title">合同管理</template>
+                            <el-menu-item index="/query">合同查询</el-menu-item>
                         </el-submenu>
                     </el-submenu>
-                    <el-menu-item index="3" disabled>消息中心</el-menu-item>
+                    <el-submenu index="3">
+                        <template slot="title">OA模块</template>
+                        <el-submenu index="/job">
+                            <template slot="title">工单管理</template>
+                            <el-menu-item index="/check">工单审核</el-menu-item>
+                            <el-menu-item index="/query">工单查询</el-menu-item>
+                        </el-submenu>
+                    </el-submenu>
+                    <el-submenu index="4">
+                        <template slot="title">财务模块</template>
+                    </el-submenu>
+                    <el-submenu index="5">
+                        <template slot="title">统计模块</template>
+                    </el-submenu>
+                    <el-submenu index="6">
+                        <template slot="title">用户设置</template>
+                    </el-submenu>
+                    <el-submenu index="7">
+                        <template slot="title">系统设置</template>
+                    </el-submenu>
                 </el-menu>
             </el-col>
         </el-row>
