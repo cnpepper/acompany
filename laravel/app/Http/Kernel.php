@@ -58,6 +58,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'cors' => \Barryvdh\Cors\HandleCors::class, //API允许跨域请求，可以带上这个中间件
+        'cors' => \Barryvdh\Cors\HandleCors::class, // API允许跨域请求，可以带上这个中间件
+        'source'=> \App\Http\Middleware\AuthSource::class, // 资源权限检查中间件
     ];
 }

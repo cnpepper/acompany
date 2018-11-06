@@ -20,4 +20,7 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>['auth']],function(){
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/1storage/image',function(){
+        return response()->file(storage_path('image/logo.jpg'));
+    });
 });

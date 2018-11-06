@@ -46,19 +46,6 @@ $api->version('v1', function ($api) {
             });
         });
         /**
-         * workspace 工作台接口
-         */
-        $api->group(['prefix'=>'workspace'],function($api){
-            /**
-             * task 任务接口
-             */
-            $api->group(['prefix'=>'task'],function($api){
-                $api->post('create','App\Http\Controllers\Api\WorkSpace\Mysql\CreateController@index');
-                $api->post('query','App\Http\Controllers\Api\WorkSpace\Mysql\QueryController@index');
-                $api->post('check_query','App\Http\Controllers\Api\WorkSpace\Mysql\CheckQueryController@index');
-            });
-        });
-        /**
          * test 测试接口
          */
         $api->group(['prefix'=>'test'],function($api){
