@@ -10,24 +10,6 @@ use Illuminate\Support\Facades\Auth;
 // 模型引用
 use App\Domain\WokeSpace\Mysql\QuerySql;
 
-/**
- * @api {post} url/user 查询SQL申请列表
- *
- * @apiVersion 0.1.0
- * @apiName Nan
- * @apiGroup Mysql
- * @apiDescription 新建SQL语句供人审核后执行修改线上数据库
- *
- * @apiSuccess {Number} code 状态码0为成功,非0为失败
- * @apiSuccess {String} msg 错误信息
- * @apiSuccess {Object} data 返回json对象
- *
- * @apiSuccessExample {json} Response:
- *     {
- *       "status": 0,
- *       "info": []
- *     }
- */
 class CheckQueryController extends Controller
 {
     /**

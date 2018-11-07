@@ -6,26 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-/**
- * @api {post} url/user 新建SQL语句
- * 
- * @apiVersion 0.1.0
- * @apiName Nan
- * @apiGroup Mysql
- * @apiDescription 新建SQL语句供人审核后执行修改线上数据库
- * 
- * @apiParam {String} sentence 请求参数
- *
- * @apiSuccess {Number} code 状态码0为成功,非0为失败
- * @apiSuccess {String} msg 错误信息
- * @apiSuccess {Object} data 返回json对象
- *
- * @apiSuccessExample {json} Response:
- *     {
- *       "status": 0,
- *       "info": []
- *     }
- */
+
 class CreateController extends Controller
 {
     /**
