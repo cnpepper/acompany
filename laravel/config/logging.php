@@ -37,13 +37,13 @@ return [
 
         'single' => [
             'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/single_laravel.log'),
             'level' => 'debug',
         ],
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/daily_laravel.log'),
             'level' => 'debug',
             'days' => 7,
         ],
@@ -64,6 +64,19 @@ return [
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => 'debug',
+        ],
+
+        
+        //用户自定义的驱动类型
+
+        /**
+         * 用于记录用户的接口调用情况，方便排查用户的动作情况。
+         */
+        'user' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/user.log'),
+            'level' => 'debug',
+            'days' => 1,
         ],
     ],
 

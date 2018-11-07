@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Api\Test;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+
 /**
  * 测试模块
  *
@@ -24,10 +25,9 @@ class QueryController extends Controller
  * })
  */
     public function index(){
-        $url = '';
-        // 获取一个图片资源
-        return Storage::disk('local')->url('image/MitqpnF9vgpJR40lZfbUFVy2DTdrPJcWWx7kbjzN.png');
-        //asset('storage//image/MitqpnF9vgpJR40lZfbUFVy2DTdrPJcWWx7kbjzN.png');
-        //return $this->returnInfo(0,'ok',$url);
+        // 测试日志
+        Log::info('Showing user logs');
+        //Log::channel('mylog')->info('MyLog Something happened!');
+        return $this->returnInfo(0,'ok','');
     }
 }

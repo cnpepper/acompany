@@ -12,7 +12,6 @@ class PermissionDomain {
     public function create($name){
         if($name){
             $permission = Permission::create(['name' => trim($name)]);
-            Log::debug('PermissionDomain_create');
         }
         return true;
     }
@@ -22,14 +21,12 @@ class PermissionDomain {
         if($name){
             $user = User::findOrFail($user_id);
             $user->givePermissionTo(trim($name));
-            Log::debug('PermissionDomain_give');
         }
         return true;
     }
 
     public function getUserPermission($user_id){
         $user = User::findOrFail($user_id);
-        Log::debug('getUserPermission',array($user));
         $user_permission = $user->permissions;
         $permission_map = array();
         foreach($user_permission as $row){
@@ -37,7 +34,5 @@ class PermissionDomain {
         }
         return $permission_map;
     }
-
-
 }
 ?>

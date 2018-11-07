@@ -31,7 +31,7 @@ $api->version('v1', function ($api) {
     /**
      * 需要验证的api
      */
-    $api->group(['middleware' => ['auth:api', 'cors']], function ($api) {
+    $api->group(['middleware' => ['auth:api','befor','cors']], function ($api) {
         /**
          * Setting 设置接口
          */
@@ -44,6 +44,15 @@ $api->version('v1', function ($api) {
                 $api->post('give','App\Http\Controllers\Api\Setting\Permission\GiveController@index');
                 $api->post('get','App\Http\Controllers\Api\Setting\Permission\GetController@index');
             });
+        });
+        /**
+         * Utils 工具接口
+         */
+        $api->group(['prefix'=>'utils'],function($api){
+            /**
+             * resource 获取资源接口
+             */
+            $api->get('resource','App\Http\Controllers\Api\Utils\ResourceController@index');
         });
         /**
          * test 测试接口
