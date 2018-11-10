@@ -10,6 +10,9 @@ import Layout from '@/views/common/Layout'
 import Login from '@/views/app/Login'
 import Home from '@/views/app/Home'
 
+// 设置模块
+import Employee from '@/views/app/setting/base/employee/Index'
+
 // 2. 定义路由
 export default new Router({
   routes: [
@@ -23,6 +26,10 @@ export default new Router({
       children: [{
           path: '/home',
           component: Home
+        },
+        {
+          path: '/setting/base/employee',
+          component: Employee
         }
       ]
     },

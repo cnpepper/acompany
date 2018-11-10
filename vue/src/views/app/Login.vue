@@ -4,7 +4,7 @@
     <el-form ref="loginForm" :model="login_form" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">内部系统工作后台</h3>
+        <h3 class="title">企业内部管理后台</h3>
       </div>
 
       <el-form-item prop="email">

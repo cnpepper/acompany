@@ -1,10 +1,10 @@
 import axios from 'axios'
 import store from '@/store'
-import router from '../router'
+import router from '@/router'
 // 创建axios实例
 const service = axios.create({
-    baseURL: 'http://acompany.dev/api', // WIN
-    //baseURL: 'http://homestead.test/api', // MAC
+    //baseURL: 'http://acompany.dev/api', // WIN
+    baseURL: 'http://homestead.test/api', // MAC
     timeout: 0
 })
 
@@ -24,9 +24,6 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
     response=>{
-        //todo..
-        console.log(response)
-        
         if(0 != response.data.code){
             // todo 给出警告
         }
@@ -35,8 +32,7 @@ service.interceptors.response.use(
         }
     },
     error=>{
-        console.log(error)
-        //router.push('/')
+        router.push('/')
         return error
     }
 )

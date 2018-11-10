@@ -3,7 +3,8 @@
         <el-row>
             <el-col :span="24">
                 <el-menu class="el-menu-demo" mode="horizontal"
-                    background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router="true">
+                    background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router="true"
+                    default-active="/home">
                     <el-menu-item index="/home">仪表盘</el-menu-item>
                     <el-submenu index="2">
                         <template slot="title">CRM模块</template>
@@ -43,6 +44,10 @@
                     </el-submenu>
                     <el-submenu index="7">
                         <template slot="title">系统设置</template>
+                        <el-submenu index="7-1">
+                        <template slot="title">基础设置</template>
+                            <el-menu-item index="/setting/base/employee">员工设置</el-menu-item>
+                        </el-submenu>
                     </el-submenu>
                 </el-menu>
             </el-col>
