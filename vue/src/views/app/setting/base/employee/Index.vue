@@ -1,5 +1,6 @@
 <template>
-  <el-condianer>
+  <el-container>
+    <el-main>
     <section class="tableOne">
       <h2 align="center">自定义表头样式</h2>
       <!-- 添加自定义方法 renderHeaderOne、renderHeaderTwo、renderHeaderThree -->
@@ -53,7 +54,8 @@
         </el-table>
       </div>
     </section>
-  </el-condianer>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
@@ -130,8 +132,8 @@ export default {
       ])
     },
     renderHeaderThree (h, { column, $index }) {
-      return h('span', [
-        h('span',
+      return h('table', [
+        h('tr',
           {
             class: 'errorIcon3',
             on: {
@@ -140,8 +142,17 @@ export default {
               }
             }
           }),
-        h('span', column.label),
-        h('span',
+        h('tr', column.label),
+        h('tr',[
+          h('input',{
+            on:{
+              input:()=>{
+                console.log(111)
+              }
+            }
+          })
+        ]),
+        h('tr',
           {
             style: {
               cursor: 'pointer'
