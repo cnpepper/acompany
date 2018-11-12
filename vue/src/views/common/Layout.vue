@@ -6,7 +6,7 @@
                     background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router="true"
                     default-active="/home">
                     <el-menu-item index="/home">仪表盘</el-menu-item>
-                    <el-submenu index="2">
+                    <el-submenu index="/crm">
                         <template slot="title">CRM模块</template>
                         <el-submenu index="/lead">
                             <template slot="title">线索管理</template>
@@ -14,7 +14,7 @@
                         </el-submenu>
                         <el-submenu index="/customer">
                             <template slot="title">客户管理</template>
-                            <el-menu-item index="/query">客户查询</el-menu-item>
+                            <el-menu-item index="/customer_query">客户查询</el-menu-item>
                         </el-submenu>
                         <el-submenu index="/chance">
                             <template slot="title">机会管理</template>

@@ -10,9 +10,35 @@ import Layout from '@/views/common/Layout'
 import Login from '@/views/app/Login'
 import Home from '@/views/app/Home'
 
+// CRM模块
+import Customer from "@/views/crm/customer/Index"
+
 // 设置模块
 import Employee from '@/views/app/setting/base/employee/Index'
 
+const app = {
+  path: '/app',
+  component: Layout,
+  children: [{
+      path: '/home',
+      component: Home
+    },
+    {
+      path: '/setting/base/employee',
+      component: Employee
+    },
+  ]
+}
+
+const crm = {
+  path: '/crm',
+  component: Layout,
+  children: [{
+      path: '/customer_query',
+      component: Customer
+    }
+  ]
+}
 // 2. 定义路由
 export default new Router({
   routes: [
@@ -21,17 +47,13 @@ export default new Router({
       component: Login
     },
     {
-      path: '/app',
+      path: '/crm',
       component: Layout,
       children: [{
-          path: '/home',
-          component: Home
-        },
-        {
-          path: '/setting/base/employee',
-          component: Employee
+          path: '/customer_query',
+          component: Customer
         }
       ]
-    },
+    }
   ]
 })
