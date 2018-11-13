@@ -1,8 +1,11 @@
 <template>
     <div>
         <el-row>
-            <el-col :span="24">
-                <el-menu class="el-menu-demo" mode="horizontal"
+            
+        </el-row>
+        <el-row>
+            <el-col :span="4">
+                <el-menu class="el-menu-demo"
                     background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router="true"
                     default-active="/home">
                     <el-menu-item index="/home">仪表盘</el-menu-item>
@@ -51,9 +54,7 @@
                     </el-submenu>
                 </el-menu>
             </el-col>
-        </el-row>
-        <el-row>
-            <el-col :span="24">
+            <el-col :span="20">
                 <router-view></router-view>
             </el-col>
         </el-row>

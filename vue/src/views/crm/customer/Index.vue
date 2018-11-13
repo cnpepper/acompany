@@ -73,11 +73,14 @@
         </el-header>
         <el-main style="padding:5px;">
             <el-container>
-                <el-main style="height:250px;padding:0;">
-                    <el-table :data="tableData" border size="mini" height="250" style="width: 100%">
-                        <el-table-column prop="date" label="日期" width="180">
+                <el-main style="padding:0;">
+                    <el-table :data="tableData" border size="mini" style="width: 100%">
+                        <el-table-column label="姓名" width="180">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="visible = true">{{ scope.row.name }}</el-button>
+                            </template>
                         </el-table-column>
-                        <el-table-column prop="name" label="姓名" width="180">
+                        <el-table-column prop="date" label="日期" width="180">
                         </el-table-column>
                         <el-table-column prop="address" label="地址">
                         </el-table-column>
@@ -90,29 +93,31 @@
                     :total="400">
                 </el-pagination>
             </el-row>
-            <el-tabs v-model="activeName" @tab-click="handleClick">
-                <el-tab-pane label="用户管理" name="first">
-                    <el-container>
-                        <el-main style="height:150px;padding:0;">
+        </el-main>
+        <el-footer style="height:20px;">
+        </el-footer>
+        <div class="customer-details" v-if="visible">
+            <el-card class="box-card" shadow="never">
+                <el-row slot="header">
+                    <span style="float:right">客户详情</span>
+                    <el-button @click="visible = false" style="padding: 3px" type="text">关闭</el-button>
+                </el-row>
+                <el-container>
+                    <el-main style="padding:0;">
+                        <el-row>
                             <el-table :data="tableData" border size="mini" style="width: 100%" :show-header="false">
-                                <el-table-column prop="date" label="日期" width="180">
-                                </el-table-column>
                                 <el-table-column prop="name" label="姓名" width="180">
+                                </el-table-column>
+                                <el-table-column prop="date" label="日期" width="180">
                                 </el-table-column>
                                 <el-table-column prop="address" label="地址">
                                 </el-table-column>
                             </el-table>
-                        </el-main>
-                    </el-container>
-                </el-tab-pane>
-                <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
-                <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
-                <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
-            </el-tabs>
-
-        </el-main>
-        <el-footer style="height:20px;">
-        </el-footer>
+                        </el-row>
+                    </el-main>
+                </el-container>
+            </el-card>
+        </div>
     </el-container>
 </template>
 
@@ -120,6 +125,7 @@
     export default {
         data() {
             return {
+                visible: false,
                 tableData: [{
                     date: '2016-05-02',
                     name: '王小虎',
@@ -136,7 +142,7 @@
                     date: '2016-05-03',
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1516 弄'
-                },{
+                }, {
                     date: '2016-05-02',
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1518 弄'
@@ -174,5 +180,12 @@
 </script>
 
 <style>
-
+    .customer-details {
+        width: 800px;
+        height: 500px;
+        top: 43px;
+        right: 0px;
+        position: absolute;
+        z-index: 100;
+    }
 </style>
