@@ -20,6 +20,7 @@ class RiakServiceProvider extends ServiceProvider
             // $query->sql
             // $query->bindings
             // $query->time
+           // 试一下邮箱改好了么
             Log::info($query->sql);           
         });
     }
