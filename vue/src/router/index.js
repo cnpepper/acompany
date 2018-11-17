@@ -11,7 +11,7 @@ import Login from '@/views/app/Login'
 import Home from '@/views/app/Home'
 
 // CRM模块
-import Customer from "@/views/crm/customer/Index"
+import Customer from "@/views/crm/customer/CustomerQuery"
 
 // 设置模块
 import Employee from '@/views/app/setting/base/employee/Index'
