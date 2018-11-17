@@ -117,7 +117,7 @@
 </template>
 
 <script>
-    import TableLayout from "@/views/common/TableLayout.vue"
+    import TableLayout from "@/views/common/TableLayout"
     export default {
         components: {
             TableLayout
