@@ -19,6 +19,7 @@ $api->version('v1', function ($api) {
      * 不需要验证的api
      */
     $api->group(['middleware' => ['cors']], function ($api) {
+        $api->get('customer_query', 'App\Http\Controllers\Api\Customer\CustomerQueryController@index'); 
         /**
          * User 用户接口
          */
