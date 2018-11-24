@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Test;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use App\Events\Event;
 
 /**
  * 测试模块
@@ -28,6 +29,7 @@ class QueryController extends Controller
         // 测试日志
         Log::info('Showing user logs');
         //Log::channel('mylog')->info('MyLog Something happened!');
+        event(new Event());
         return $this->returnInfo(0,'ok','');
     }
 }

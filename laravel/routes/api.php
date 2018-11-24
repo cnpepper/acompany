@@ -27,6 +27,13 @@ $api->version('v1', function ($api) {
             //$api->post('user_register', 'App\Http\Controllers\Api\LoginController@register'); 暂时没实现
             $api->post('login', 'App\Http\Controllers\Api\User\LoginController@index'); 
         });
+
+        /**
+         * test 测试接口
+         */
+        $api->group(['prefix'=>'test'],function($api){
+            $api->post('query','App\Http\Controllers\Api\Test\QueryController@index');
+        });
     });
 
     /**
@@ -54,12 +61,6 @@ $api->version('v1', function ($api) {
              * resource 获取资源接口
              */
             $api->get('resource','App\Http\Controllers\Api\Utils\ResourceController@index');
-        });
-        /**
-         * test 测试接口
-         */
-        $api->group(['prefix'=>'test'],function($api){
-            $api->post('query','App\Http\Controllers\Api\Test\QueryController@index');
         });
     });
 });
