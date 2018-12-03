@@ -34,6 +34,10 @@
         </el-submenu>
         <el-submenu index="5">
             <template slot="title">统计模块</template>
+            <el-submenu index="/data">
+                <template slot="title">数据管理</template>
+                <el-menu-item index="/data/query">数据查询</el-menu-item>
+            </el-submenu>
         </el-submenu>
         <el-submenu index="6">
             <template slot="title">用户设置</template>
