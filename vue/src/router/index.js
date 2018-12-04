@@ -10,11 +10,7 @@ Vue.use(Router)
 // Home
 import ViewsHome from "@/views/home/ViewsHome"
 
-// CRM
-import ViewsCrmCustomerQuery from "@/views/crm/customer/ViewsCrmCustomerQuery"
-
-// 数据
-import DataTemplateView from "@/views/data/DataTemplateView"
+import LeadQueryViews from "@/views/lead/LeadQueryViews"
 
 // 2. 定义路由
 export default new Router({
@@ -24,12 +20,8 @@ export default new Router({
       component: ViewsHome
     },
     {
-      path: '/crm/customer/query',
-      component: ViewsCrmCustomerQuery
-    },
-    {
-      path: '/data/query',
-      component: DataTemplateView
+      path: '/lead_query',
+      component: LeadQueryViews
     }
   ]
 })
