@@ -1,7 +1,7 @@
 <template>
     <el-container>
         <el-main>
-            <el-table :data="tableData" border>
+            <el-table :data="tableData" size="mini" border>
                 <el-table-column prop="date" label="日期" width="180" :render-header="renderHeader">
                 </el-table-column>
                 <el-table-column prop="name" label="姓名" width="180">
@@ -111,9 +111,18 @@
         methods: {
             renderHeader(h, {
                 column,
-                index
+                $index
             }) {
-
+                return h(
+                    'div',[
+                        h('p',column.label),
+                        h('el-select',{attrs:
+                        {
+                            size:'mini'
+                        }
+                        })
+                    ]
+                )
             }
         }
     }
