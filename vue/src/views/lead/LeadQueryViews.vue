@@ -2,7 +2,7 @@
     <el-container>
         <el-main>
             <el-table :data="tableData" size="mini" border>
-                <el-table-column prop="date" label="日期" width="180" :render-header="createHeader">
+                <el-table-column prop="date" label="日期" width="180" :render-header="renderHeader">
                 </el-table-column>
                 <el-table-column prop="name" label="姓名" width="180">
                 </el-table-column>
@@ -105,7 +105,8 @@
                         name: '王小虎',
                         address: '上海市普陀区金沙江路 1516 弄'
                     }
-                ]
+                ],
+                value:''
             }
         },
         methods: {
@@ -119,6 +120,15 @@
                         h('el-select', {
                             attrs: {
                                 size: 'mini'
+                            },
+                            props:{
+                                // 解决v-modle要求参数的问题
+                                value:this.value
+                            },
+                            on:{
+                                'on-change':(event)=>{
+
+                                }
                             }
                         })
                     ]
@@ -128,7 +138,7 @@
                 column,
                 $index
             }){
-                let o = Array.apply(null,{lenght:1}).map(function(){
+                /*let o = Array.apply(null,{length:1}).map(function(){
                     return h(
                     'div', [
                         h('p', column.label),
@@ -140,7 +150,20 @@
                     ]
                 )
                 })
-                return o[0]
+                setTimeout(()=>{
+                    return o[0]
+                },1000)
+*/
+                return h(
+                    'div', [
+                        h('p', column.label),
+                        h('el-select', {
+                            attrs: {
+                                size: 'mini'
+                            }
+                        })
+                    ]
+                )
             },
             renderHeader2(h, {
                 column,
