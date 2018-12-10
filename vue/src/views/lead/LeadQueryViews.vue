@@ -44,11 +44,22 @@
                 $index
             }) {
                 return h(
-                    'el-row', [
-                        h('el-row', column.label),
+                    'el-row',{
+                        style:{
+                            display:'grid',
+                            lineheight:'auth',
+                            padding:'0px',
+                            overflow:'unset'
+                        }
+                    },[
+                        h('el-row', [h('el-col',column.label)]),
                         h('el-row', [
                             h('el-select', {
+                                style:{
+                                    width:'100px'
+                                },
                                 attrs: {
+                                    
                                     size: 'mini'
                                 },
                                 props: {
