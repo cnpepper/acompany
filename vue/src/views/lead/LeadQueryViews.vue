@@ -44,22 +44,27 @@
                 $index
             }) {
                 return h(
-                    'el-row',{
-                        style:{
-                            display:'grid',
-                            lineheight:'auth',
-                            padding:'0px',
-                            overflow:'unset'
+                    'el-row', {
+                        style: {
+                            display: 'grid',
+                            lineHeight: 'unset',
+                            padding: '0px',
+                            overflow: 'unset'
                         }
-                    },[
-                        h('el-row', [h('el-col',column.label)]),
-                        h('el-row', [
+                    }, [
+                        h('el-row', {
+                            style: {
+                                padding: '0px',
+                            }
+                        }, column.label),
+                        h('el-row', {
+                            style: {
+                                padding: '0px',
+                            },
+                        }, [
                             h('el-select', {
-                                style:{
-                                    width:'100px'
-                                },
                                 attrs: {
-                                    
+
                                     size: 'mini'
                                 },
                                 props: {
@@ -635,5 +640,10 @@
 </script>
 
 <style>
-
+div.el-select.el-select--mini{
+    padding: 0px;
+}
+div.el-input--mini.el-input--suffix{
+    padding: 0px;
+}
 </style>
