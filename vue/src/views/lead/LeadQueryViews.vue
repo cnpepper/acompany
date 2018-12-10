@@ -4,27 +4,29 @@
             <el-table :data="tableData" size="mini" border>
                 <el-table-column prop="lead_no" label="编号" width="80" :render-header="renderHeader">
                 </el-table-column>
-                <el-table-column prop="date" label="名称" width="180" :render-header="renderHeader">
+                <el-table-column prop="lead_name" label="名称" width="180" :render-header="renderHeader">
                 </el-table-column>
-                <el-table-column prop="date" label="来源" width="180" :render-header="renderHeader">
+                <el-table-column prop="lead_origin" label="来源" width="180" :render-header="renderHeader">
                 </el-table-column>
-                <el-table-column prop="date" label="等级" width="180" :render-header="renderHeader">
+                <el-table-column prop="lead_leavel" label="等级" width="180" :render-header="renderHeader">
                 </el-table-column>
-                <el-table-column prop="name" label="负责人" width="180">
+                <el-table-column prop="lead_concat" label="负责人" width="180">
                 </el-table-column>
-                <el-table-column prop="name" label="电话" width="180">
+                <el-table-column prop="mobile" label="手机" width="180">
                 </el-table-column>
-                <el-table-column prop="name" label="省" width="180">
+                <el-table-column prop="telphone" label="电话" width="180">
                 </el-table-column>
-                <el-table-column prop="name" label="市" width="180">
+                <el-table-column prop="privoce" label="省" width="180">
                 </el-table-column>
-                <el-table-column prop="name" label="区" width="180">
+                <el-table-column prop="city" label="市" width="180">
+                </el-table-column>
+                <el-table-column prop="distance" label="区" width="180">
                 </el-table-column>
                 <el-table-column prop="address" label="地址" width="180">
                 </el-table-column>
-                <el-table-column prop="name" label="更新时间" width="180">
+                <el-table-column prop="modified" label="更新时间" width="180">
                 </el-table-column>
-                <el-table-column prop="name" label="创建时间" width="180">
+                <el-table-column prop="created" label="创建时间" width="180">
                 </el-table-column>
             </el-table>
             <el-pagination :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper"
