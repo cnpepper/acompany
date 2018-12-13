@@ -13,7 +13,6 @@
 
 $api = app('Dingo\Api\Routing\Router');
 
-// dingo可以控制版本 但是发现好像加不了前缀
 $api->version('v1', function ($api) {
     /**
      * 不需要验证的api
