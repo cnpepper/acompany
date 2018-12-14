@@ -12,9 +12,14 @@ import ViewsHome from "@/views/home/ViewsHome"
 
 import LeadQueryViews from "@/views/lead/LeadQueryViews"
 
+import CustomerInfo from "@/components/CustomerInfo"
 // 2. 定义路由
 export default new Router({
   routes: [
+    {
+      path: '/customer_info',
+      component: CustomerInfo
+    },
     {
       path: '/',
       component: ViewsHome
