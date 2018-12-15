@@ -56,16 +56,16 @@
     width: '100%';
     border-collapse:collapse;
 }
-.crm-customer-info table, td, th
+.crm-customer-info table,td
 {
-    border:1px solid black;
+    border:1px solid #ebeef5;
 }
-.crm-customer-info td, th{
+.crm-customer-info td{
     padding:5px;
     width: 100px;
 }
 .crm-title-td{
     font-weight: bold;
-    background-color:lightgrey;
+    background-color:#ecf5ff;
 }
 </style>
