@@ -27,9 +27,9 @@
                 <td class="crm-title-td">其他</td><td>{{data.other}}</td>
             </tr>
             <tr>
-                <td class="crm-title-td">电销强开时间</td><td>{{data.company_name}}</td>
-                <td class="crm-title-td">一线强开时间</td><td>{{data.company_name}}</td>
-                <td class="crm-title-td">最新跟进时间</td><td>{{data.company_name}}</td>
+                <td class="crm-title-td">电销强开时间</td><td>{{data.tel_follow_time}}</td>
+                <td class="crm-title-td">一线强开时间</td><td>{{data.sale_follow_time}}</td>
+                <td class="crm-title-td">最新跟进时间</td><td>{{data.last_follow_time}}</td>
             </tr>
         </table>
     </el-row>
@@ -40,6 +40,11 @@
         props: ['data'],
         data() {
             return {
+            }
+        },
+        created(){
+            this.data={
+                company_name:'我的小公司'
             }
         }
     }
@@ -57,6 +62,7 @@
 }
 .crm-customer-info td, th{
     padding:5px;
+    width: 100px;
 }
 .crm-title-td{
     font-weight: bold;
