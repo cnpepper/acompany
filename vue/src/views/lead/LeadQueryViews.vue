@@ -1,4 +1,5 @@
 <template>
+    <div>
     <el-container>
         <el-main>
             <el-table :data="tableData" size="mini" border>
@@ -29,11 +30,16 @@
                 <el-table-column prop="created" label="创建时间" width="100">
                 </el-table-column>
             </el-table>
+            <div class="crm-detail-card">
+                hello!
+            </div>
             <el-pagination :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper"
                 :total="400">
             </el-pagination>
         </el-main>
     </el-container>
+    
+    </div>
 </template>
 
 <script>
@@ -645,5 +651,12 @@ div.el-select.el-select--mini{
 }
 div.el-input--mini.el-input--suffix{
     padding: 0px;
+}
+.crm-detail-card{
+width:300px;
+height:600px;
+background-color:red;
+position: relative;
+top: 0px;
 }
 </style>
