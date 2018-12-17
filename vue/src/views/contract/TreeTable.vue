@@ -43,7 +43,6 @@
 */
 import treeTable from './TreeTable'
 import treeToArray from './utils'
-
 export default {
   name: 'CustomTreeTableDemo',
   components: { treeTable },
