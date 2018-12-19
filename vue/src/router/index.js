@@ -15,9 +15,15 @@ import LeadQueryViews from "@/views/lead/LeadQueryViews"
 import CustomerInfo from "@/components/CustomerInfo"
 
 import ContractItem from "@/views/contract/ContractItem"
+
+import AppTest from "@/views/app/AppTest"
 // 2. 定义路由
 export default new Router({
   routes: [
+    {
+      path: '/test',
+      component: AppTest
+    },
     {
       path: '/contract',
       component: ContractItem
