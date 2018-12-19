@@ -7,7 +7,7 @@
                     </el-table-column>
                     <el-table-column prop="lead_name" label="名称" width="120" :render-header="createRenderHeader">
                     </el-table-column>
-                    <el-table-column prop="lead_origin" label="来源" width="80">
+                    <el-table-column prop="lead_origin" label="来源" width="80" :render-header="createRenderHeader">
                     </el-table-column>
                     <el-table-column prop="lead_leavel" label="等级" width="80">
                     </el-table-column>
@@ -46,43 +46,43 @@
                 column,
                 $index
             }) {
-                return h(
-                    'el-row', {
-                        style: {
-                            display: 'grid',
-                            lineHeight: 'unset',
-                            padding: '0px',
-                            overflow: 'unset'
-                        }
-                    }, [
-                        h('el-row', {
+                let _that = this
+                return Array.apply(null, {
+                    length: 1
+                }).map(function () {
+                    return h(
+                        'div', {
                             style: {
+                                display: 'grid',
+                                lineHeight: 'unset',
                                 padding: '0px',
+                                overflow: 'unset'
                             }
-                        }, column.label),
-                        h('el-row', {
-                            style: {
-                                padding: '0px',
-                            },
                         }, [
-                            h('el-select', {
-                                attrs: {
-
-                                    size: 'mini'
-                                },
-                                props: {
-                                    // 解决v-modle要求参数的问题
-                                    value: this.value
-                                },
-                                on: {
-                                    'on-change': (event) => {
-
-                                    }
+                            h('div', {
+                                style: {
+                                    padding: '0px',
                                 }
-                            })
-                        ])
-                    ]
-                )
+                            }, column.label),
+                            h('div', {
+                                style: {
+                                    padding: '0px',
+                                },
+                            }, [
+                                h('input', {
+                                    style:{
+                                        width:'100%'
+                                    },
+                                    on: {
+                                        'on-change': (event) => {
+                                            console.log('输入了内容')
+                                        }
+                                    }
+                                })
+                            ])
+                        ]
+                    )
+                })
             }
         },
         data() {
@@ -115,499 +115,8 @@
                     address: '上海市普陀区金沙江路 1518 弄',
                     modified: '2016-05-02',
                     created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
-                }, {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
                 }, ],
                 value: '',
-                cardOnff: false,
             }
         }
     }
