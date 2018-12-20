@@ -1,6 +1,9 @@
 <template>
     <div>
         <el-container>
+            <el-header>
+                <el-button>新建线索</el-button>
+            </el-header> 
             <el-main>
                 <el-table :data="tableData" size="mini" border>
                     <el-table-column prop="lead_no" label="编号" width="120">
@@ -47,7 +50,7 @@
                 $index
             }) {
                 let _that = this
-                return Array.apply(null, {
+                let render = Array.apply(null, {
                     length: 1
                 }).map(function () {
                     return h(
@@ -83,6 +86,7 @@
                         ]
                     )
                 })
+                return render[0]
             }
         },
         data() {
