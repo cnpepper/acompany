@@ -5,7 +5,8 @@
                 <el-button>新建线索</el-button>
             </el-header> 
             <el-main>
-                <el-table :data="tableData" size="mini" border>
+                <el-table :data="tableData" size="mini" border 
+                    @row-contextmenu="ContextMenuHandle">
                     <el-table-column prop="lead_no" label="编号" width="120">
                     </el-table-column>
                     <el-table-column prop="lead_name" label="名称" width="120" :render-header="createRenderHeader">
@@ -45,6 +46,11 @@
 <script>
     export default {
         methods: {
+            ContextMenuHandle(row,event){
+                console.log(1111)
+                console.log(row)
+                console.log(event)
+            },
             createRenderHeader(h, {
                 column,
                 $index
