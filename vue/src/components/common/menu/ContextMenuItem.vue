@@ -1,6 +1,5 @@
 <template>
   <li class="v-contextmenu-divider" v-if="divider"></li>
-
   <li
     v-else
     :class="classname"
