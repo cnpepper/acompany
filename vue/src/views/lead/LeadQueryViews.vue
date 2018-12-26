@@ -48,35 +48,7 @@
 </template>
 
 <script>
-    import VContextmenu from "@/components/common/menu/ContextMenu"
-    import VContextmenuGroup from "@/components/common/menu/ContextMenuGroup"
-    import VContextmenuItem from "@/components/common/menu/ContextMenuItem"
-    import VContextSubmenu from "@/components/common/menu/ContextSubMenu"
-
     export default {
-        props: {
-            theme: String,
-        },
-        directives: {
-            oncontext: {
-                // 之所以用 inserted 而不是 bind，是需要确保 contentmenu mounted 后才进行 addRef 操作
-                inserted(el, binding, vnode) {
-                    console.log(11111)
-                    const contextmenu = vnode.context.$refs[binding.arg]
-                    contextmenu.addRef({
-                        el,
-                        vnode
-                    })
-                    contextmenu.$contextmenuId = el.id || contextmenu._uid // eslint-disable-line no-underscore-dangle
-                },
-            }
-        },
-        components: {
-            VContextmenu,
-            VContextmenuGroup,
-            VContextmenuItem,
-            VContextSubmenu
-        },
         methods: {
             ContextMenuHandle(row, event) {
                 row
@@ -164,9 +136,10 @@
 </script>
 
 <style>
-.box {
-    width: 100%;
-  }
+    .box {
+        width: 100%;
+    }
+
     div.el-select.el-select--mini {
         padding: 0px;
     }
