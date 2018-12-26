@@ -17,9 +17,15 @@ import CustomerInfo from "@/components/CustomerInfo"
 import ContractItem from "@/views/contract/ContractItem"
 
 import AppTest from "@/views/app/AppTest"
+
+import TestView from "@/views/test/TestView"
 // 2. 定义路由
 export default new Router({
   routes: [
+    {
+      path: '/test_view',
+      component: TestView
+    },
     {
       path: '/test',
       component: AppTest
