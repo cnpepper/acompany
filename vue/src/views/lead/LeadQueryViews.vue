@@ -38,12 +38,6 @@
                 </el-pagination>
             </el-main>
         </el-container>
-        <v-contextmenu :theme="theme" ref="contextmenu">
-            <v-contextmenu-item>菜单1</v-contextmenu-item>
-        </v-contextmenu>
-        <div :class="['box', theme]" v-oncontext:contextmenu>
-            点击此区域
-        </div>
     </div>
 </template>
 
