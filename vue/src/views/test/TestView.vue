@@ -1,10 +1,9 @@
 <template>
     <div>
-        123
-        <p>123
-            <span class="redbox">123</span>
-        </p>
-        123
+        <div>
+            <p>动画</p>
+            
+        </div>
     </div>
 </template>
 
