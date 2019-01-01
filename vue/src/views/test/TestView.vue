@@ -6,7 +6,7 @@
     </div>
     <div>
       <p>右键菜单</p>
-      <div class="crm-postion">
+      <div class="crm-postion" :style="{top:position_y+'px',left:position_x+'px'}">
         <ul class="crm-comtextmenu">
           <li>审核</li>
           <li>驳回</li>
@@ -14,29 +14,76 @@
         </ul>
       </div>
     </div>
+    <div>
+      <el-table :data="tableData" style="width: 100%" @row-contextmenu="HandleContextmenu">
+        <el-table-column prop="date" label="日期" width="180"></el-table-column>
+        <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      position_x:0,
+      position_y:0,
+      tableData: [
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄"
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+        }
+      ]
+    };
+  },
+  methods:{
+    HandleContextmenu(row,event){
+      console.log(row)
+      console.log(event)
+      console.log(event.x)
+      console.log(event.y)
+      this.position_x = event.x
+      this.position_y = event.y
+    },
+    setPosition(){
+
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-
-.crm-comtextmenu{
+.crm-comtextmenu {
   list-style-type: none;
-  width:100px;
-  margin:0px;
-  padding:0px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
 }
-.crm-comtextmenu li{
+.crm-comtextmenu li {
   border: 1px solid black;
 }
 
-.crm-postion{
+.crm-postion {
   position: absolute;
-  top: 20px;
-  left: 500px;
+  z-index: 1000;
 }
 .action {
   width: 100px;
