@@ -6,7 +6,7 @@
     </div>
     <div>
       <p>右键菜单</p>
-      <div>
+      <div class="crm-postion">
         <ul class="crm-comtextmenu">
           <li>审核</li>
           <li>驳回</li>
@@ -25,11 +25,18 @@ export default {};
 
 .crm-comtextmenu{
   list-style-type: none;
-  border: 1px solid black;
   width:100px;
+  margin:0px;
+  padding:0px;
 }
 .crm-comtextmenu li{
   border: 1px solid black;
+}
+
+.crm-postion{
+  position: absolute;
+  top: 20px;
+  left: 500px;
 }
 .action {
   width: 100px;
