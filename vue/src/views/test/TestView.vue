@@ -21,7 +21,11 @@
         <el-table-column prop="address" label="地址"></el-table-column>
       </el-table>
     </div>
-    <div></div>
+    <div id='main'>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
   </div>
 </template>
 
@@ -72,6 +76,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#main{
+  height: 200px;
+  width: 300px;
+}
+#main div{
+  flex: 1;
+}
 .crm-comtextmenu {
   list-style-type: none;
   width: 100px;
