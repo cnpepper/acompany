@@ -38,6 +38,9 @@
                 </el-pagination>
             </el-main>
         </el-container>
+        <div class="crm-aside">
+            asdasd
+        </div>
     </div>
 </template>
 
@@ -140,5 +143,15 @@
 
     div.el-input--mini.el-input--suffix {
         padding: 0px;
+    }
+
+    .crm-aside{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 800px;
+        height: 600px;
+        background-color: aquamarine;
+        z-index: 5001;
     }
 </style>
