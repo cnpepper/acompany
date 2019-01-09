@@ -2,11 +2,11 @@
     <el-menu class="el-menu-demo" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :router="true"
         default-active="0">
         <el-submenu index="0">
-            <template slot="title">市场管理</template>
+            <template slot="title">营销管理</template>
             <el-menu-item index="/market_query">活动查询</el-menu-item>
         </el-submenu>
         <el-submenu index="1">
-            <template slot="title">商务管理</template>
+            <template slot="title">客户管理</template>
             <el-menu-item index="/lead_query">线索查询</el-menu-item>
             <el-menu-item index="/customer_query">客户查询</el-menu-item>
             <el-menu-item index="/public_customer_query">公共客户查询</el-menu-item>
@@ -15,14 +15,21 @@
             <el-menu-item index="/sales_order_query">订单查询</el-menu-item>
         </el-submenu>
         <el-submenu index="2">
+            <template slot="title">订单管理</template>
+            <el-menu-item index="/project_query">订单创建</el-menu-item>
+            <el-menu-item index="/work_query">订单查询</el-menu-item>
+            <el-menu-item index="/work_query">退换创建</el-menu-item>
+            <el-menu-item index="/work_query">退换查询</el-menu-item>
+        </el-submenu>
+        <el-submenu index="3">
             <template slot="title">服务管理</template>
             <el-menu-item index="/project_query">项目查询</el-menu-item>
             <el-menu-item index="/work_query">工单查询</el-menu-item>
         </el-submenu>
-        <el-submenu index="3">
+        <el-submenu index="4">
             <template slot="title">售后管理</template>
         </el-submenu>
-        <el-submenu index="4">
+        <el-submenu index="5">
             <template slot="title">系统管理</template>
         </el-submenu>
     </el-menu>
