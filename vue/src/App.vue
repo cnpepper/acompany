@@ -29,6 +29,9 @@
      AppMenu,
      AppHeader,
      AppFooter
+    },
+    created(){
+      console.log(document.documentElement.clientHeight)
     }
   }
 </script>
