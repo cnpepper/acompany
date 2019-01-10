@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-layout>
+    <app-layout v-loading.fullscreen.lock="loading">
       <template slot="menu">
         <app-menu></app-menu>
       </template>
@@ -32,6 +32,14 @@
     },
     created(){
       console.log(document.documentElement.clientHeight)
+      setTimeout(() => {
+          this.loading = false;
+        }, 2000);
+    },
+    data(){
+      return {
+        loading:true
+      }
     }
   }
 </script>

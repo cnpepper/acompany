@@ -152,6 +152,6 @@
         width: 800px;
         height: 600px;
         background-color: aquamarine;
-        z-index: 5001;
+        z-index: 1999;
     }
 </style>
