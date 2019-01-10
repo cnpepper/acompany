@@ -30,7 +30,6 @@ const actions = {
     return new Promise((resolve, reject) => {
       //请求登录API
       axUserLogin(login_form.email, login_form.password).then(response => {
-        console.log(response)
         let code = response.data.code
         if (0 == code) {
           let user_token = response.data.result.token
