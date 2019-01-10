@@ -31,7 +31,13 @@
      AppFooter
     },
     created(){
-      console.log(document.documentElement.clientHeight)
+      // 初始化窗口大小
+      this.$store.commit('app/SET_CLIENT_SIZE',{
+        height:document.documentElement.clientHeight,
+        width:document.documentElement.clientWidth
+      })
+      
+      // 加载应用资源
       setTimeout(() => {
           this.loading = false;
         }, 2000);
