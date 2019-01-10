@@ -11,7 +11,7 @@ const service = axios.create({
 service.interceptors.request.use(
     config=> {
         // 添加token
-        config.headers['Authorization'] = 'Bearer '+store.getters.GetToken
+        config.headers['Authorization'] = 'Bearer '+store.getters.user.GetToken
         return config
     },
     error=>{
