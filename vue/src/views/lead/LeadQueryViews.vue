@@ -5,6 +5,12 @@
                 <el-button>新建线索</el-button>
             </el-header>
             <el-main>
+                <el-tabs v-model="activeName" @tab-click="handleClick">
+                    <el-tab-pane label="3天未跟进" name="first"></el-tab-pane>
+                    <el-tab-pane label="配置管理" name="second"></el-tab-pane>
+                    <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+                    <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+                </el-tabs>
                 <el-table :data="tableData" size="mini" border @row-contextmenu="ContextMenuHandle">
                     <el-table-column prop="lead_no" label="编号" width="120">
                     </el-table-column>
@@ -47,6 +53,9 @@
 <script>
     export default {
         methods: {
+            handleClick(){
+                console.log(this.activeName)
+            },
             ContextMenuHandle(row, event) {
                 row
                 event
@@ -97,6 +106,7 @@
         },
         data() {
             return {
+                activeName:'',
                 tableData: [{
                     lead_no: 'LD201801010001',
                     lead_name: '刘大爷养生公司',
@@ -145,7 +155,7 @@
         padding: 0px;
     }
 
-    .crm-aside{
+    .crm-aside {
         position: absolute;
         top: 0px;
         right: 0px;
