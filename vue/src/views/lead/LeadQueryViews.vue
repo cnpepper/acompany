@@ -1,23 +1,67 @@
 <template>
     <div>
         <el-container>
-            <el-header>
-                <el-button>新建线索</el-button>
-            </el-header>
-            <el-main>
+            <el-main style="padding:0px;">
+                <el-collapse v-model="activeNames" @change="handleChange">
+                    <el-collapse-item title="搜索" name="1">
+                        <el-form ref="form" :model="form" label-width="80px">
+                            <el-form-item label="活动名称">
+                                <el-input v-model="form.name"></el-input>
+                            </el-form-item>
+                            <el-form-item label="活动区域">
+                                <el-select v-model="form.region" placeholder="请选择活动区域">
+                                    <el-option label="区域一" value="shanghai"></el-option>
+                                    <el-option label="区域二" value="beijing"></el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item label="活动时间">
+                                <el-col :span="11">
+                                    <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+                                </el-col>
+                                <el-col class="line" :span="2">-</el-col>
+                                <el-col :span="11">
+                                    <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
+                                </el-col>
+                            </el-form-item>
+                            <el-form-item label="即时配送">
+                                <el-switch v-model="form.delivery"></el-switch>
+                            </el-form-item>
+                            <el-form-item label="活动性质">
+                                <el-checkbox-group v-model="form.type">
+                                    <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+                                    <el-checkbox label="地推活动" name="type"></el-checkbox>
+                                    <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                                    <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+                                </el-checkbox-group>
+                            </el-form-item>
+                            <el-form-item label="特殊资源">
+                                <el-radio-group v-model="form.resource">
+                                    <el-radio label="线上品牌商赞助"></el-radio>
+                                    <el-radio label="线下场地免费"></el-radio>
+                                </el-radio-group>
+                            </el-form-item>
+                            <el-form-item label="活动形式">
+                                <el-input type="textarea" v-model="form.desc"></el-input>
+                            </el-form-item>
+                            <el-form-item>
+                                <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                                <el-button>取消</el-button>
+                            </el-form-item>
+                        </el-form>
+                    </el-collapse-item>
+                </el-collapse>
                 <el-tabs v-model="activeName" @tab-click="handleClick">
-                    <el-tab-pane label="3天未跟进" name="first"></el-tab-pane>
-                    <el-tab-pane label="配置管理" name="second"></el-tab-pane>
-                    <el-tab-pane label="角色管理" name="third"></el-tab-pane>
-                    <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+                    <el-tab-pane label="全部" name="first"></el-tab-pane>
+                    <el-tab-pane label="3天未跟进" name="second"></el-tab-pane>
+                    <el-tab-pane label="已成交客户" name="third"></el-tab-pane>
                 </el-tabs>
                 <el-table :data="tableData" size="mini" border @row-contextmenu="ContextMenuHandle">
                     <el-table-column prop="lead_no" label="编号" width="120">
                     </el-table-column>
-                    <el-table-column prop="lead_name" label="名称" width="120" :render-header="createRenderHeader">
+                    <el-table-column prop="lead_name" label="名称" width="120">
                     </el-table-column>
-                    <el-table-column prop="lead_origin" label="来源" width="80" :render-header="createRenderHeader">
-                    </el-table-column>
+                    <!-- <el-table-column prop="lead_origin" label="来源" width="80" :render-header="createRenderHeader">
+                    </el-table-column>-->
                     <el-table-column prop="lead_leavel" label="等级" width="80">
                     </el-table-column>
                     <el-table-column prop="lead_concat" label="负责人" width="80">
@@ -44,16 +88,21 @@
                 </el-pagination>
             </el-main>
         </el-container>
-        <div class="crm-aside">
-            asdasd
-        </div>
+        <!--<div class="crm-aside">
+        </div>-->
     </div>
 </template>
 
 <script>
     export default {
         methods: {
-            handleClick(){
+            onSubmit() {
+                console.log('submit!');
+            },
+            handleChange() {
+
+            },
+            handleClick() {
                 console.log(this.activeName)
             },
             ContextMenuHandle(row, event) {
@@ -106,7 +155,18 @@
         },
         data() {
             return {
-                activeName:'',
+                form: {
+                    name: '',
+                    region: '',
+                    date1: '',
+                    date2: '',
+                    delivery: false,
+                    type: [],
+                    resource: '',
+                    desc: ''
+                },
+                activeNames: '',
+                activeName: '',
                 tableData: [{
                     lead_no: 'LD201801010001',
                     lead_name: '刘大爷养生公司',
