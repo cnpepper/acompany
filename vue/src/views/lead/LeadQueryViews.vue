@@ -3,7 +3,10 @@
         <el-container>
             <el-main style="padding:0px;">
                 <el-collapse v-model="activeNames" @change="handleChange">
-                    <el-collapse-item title="搜索" name="1">
+                    <el-collapse-item>
+                        <template slot="title">
+                            一致性 Consistency
+                        </template>
                         <el-form ref="form" :model="form" label-width="80px">
                             <el-form-item label="活动名称">
                                 <el-input v-model="form.name"></el-input>
@@ -156,7 +159,7 @@
         },
         data() {
             return {
-                radio3:'全部',
+                radio3: '全部',
                 form: {
                     name: '',
                     region: '',
