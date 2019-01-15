@@ -50,11 +50,12 @@
                         </el-form>
                     </el-collapse-item>
                 </el-collapse>
-                <el-tabs v-model="activeName" @tab-click="handleClick">
-                    <el-tab-pane label="全部" name="first"></el-tab-pane>
-                    <el-tab-pane label="3天未跟进" name="second"></el-tab-pane>
-                    <el-tab-pane label="已成交客户" name="third"></el-tab-pane>
-                </el-tabs>
+                <el-radio-group v-model="radio3">
+                    <el-radio-button label="全部"></el-radio-button>
+                    <el-radio-button label="线索"></el-radio-button>
+                    <el-radio-button label="私海"></el-radio-button>
+                    <el-radio-button label="成交"></el-radio-button>
+                </el-radio-group>
                 <el-table :data="tableData" size="mini" border @row-contextmenu="ContextMenuHandle">
                     <el-table-column prop="lead_no" label="编号" width="120">
                     </el-table-column>
@@ -155,6 +156,7 @@
         },
         data() {
             return {
+                radio3:'全部',
                 form: {
                     name: '',
                     region: '',
