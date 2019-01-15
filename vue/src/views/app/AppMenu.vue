@@ -3,16 +3,17 @@
         default-active="0">
         <el-submenu index="0">
             <template slot="title">营销管理</template>
-            <el-menu-item index="/market_query">活动查询</el-menu-item>
+            <el-menu-item index="/market_query">活动</el-menu-item>
         </el-submenu>
         <el-submenu index="1">
             <template slot="title">客户管理</template>
             <el-menu-item index="/lead_query">线索查询</el-menu-item>
             <el-menu-item index="/customer_query">客户查询</el-menu-item>
-            <el-menu-item index="/public_customer_query">公共客户查询</el-menu-item>
             <el-menu-item index="/chance_query">商机查询</el-menu-item>
             <el-menu-item index="/contract_query">合同查询</el-menu-item>
             <el-menu-item index="/sales_order_query">订单查询</el-menu-item>
+            <el-menu-item index="/sales_order_query">回款查询</el-menu-item>
+            <el-menu-item index="/sales_order_query">项目查询</el-menu-item>
         </el-submenu>
         <el-submenu index="2">
             <template slot="title">订单管理</template>
