@@ -166,20 +166,6 @@
                     address: '上海市普陀区金沙江路 1518 弄',
                     modified: '2016-05-02',
                     created: '2016-05-02'
-                },  {
-                    lead_no: 'LD201801010001',
-                    lead_name: '刘大爷养生公司',
-                    lead_origin: '官网',
-                    lead_leavel: '标杆',
-                    lead_concat: '刘大爷',
-                    mobile: '18899990000',
-                    telphone: '010-1234567',
-                    privoce: '北京',
-                    city: '北京市',
-                    distance: '海淀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    modified: '2016-05-02',
-                    created: '2016-05-02'
                 }, {
                     lead_no: 'LD201801010001',
                     lead_name: '刘大爷养生公司',
