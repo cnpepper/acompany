@@ -1,56 +1,40 @@
 // 加载API接口
-import {axUserLogin} from '@/api/user'
-import {axSettingPermissionGet} from '@/api/setting/permission'
+import {apiLogin} from '@/api/user'
+import {setToken} from '@/utils/auth'
 
 const state = {
-  token: '',
-  permission: []
+  token: ''
 }
 
 const getters = {
   GetToken: state => {
     return state.token
-  },
-  GetPermission: state => {
-    return state.permission
   }
 }
 
 const mutations = {
   SET_TOKEN(state, token) {
+    setToken(token)
     state.token = token
-  },
-  SET_PERMISSION(state, permission) {
-    state.permission = permission
   }
 }
 
 const actions = {
-  UserLogin(context, login_form) {
+  userLogin(context, data) {
     return new Promise((resolve, reject) => {
-      //请求登录API
-      axUserLogin(login_form.email, login_form.password).then(response => {
+      // 登录
+      apiLogin(data.email,data.password).then(response=>{
+        // 检查接口返回数据格式
+        if(undefined === response.data.code){
+          return resolve(500)
+        }
         let code = response.data.code
-        if (0 == code) {
-          let user_token = response.data.result.token
-          //Cookies.set('USER_LOGIN_TOKEN', user_token) 客户端先不设定cookie
-          context.commit('SET_TOKEN', user_token)
+        if(0 === code){
+          // 保持token值到cookie和store
+          context.commit('SET_TOKEN',response.data.token)
         }
         resolve(code)
-      }).catch(error => {
-        reject(error)
-      })
-    })
-  },
-  GetPermission(context) {
-    return new Promise((resolve, reject) => {
-      axSettingPermissionGet().then(response => {
-        let code = response.data.code
-        if (0 == code) {
-          context.commit('SET_PERMISSION', response.data.result)
-        }
-        resolve(code)
-      }).catch(error => {
+      }).catch(error=>{
         reject(error)
       })
     })

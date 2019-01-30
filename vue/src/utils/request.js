@@ -1,40 +1,33 @@
 import axios from 'axios'
 import store from '@/store'
-import router from '@/router'
+import {getToken} from '@/utils/auth'
+
 // 创建axios实例
 const service = axios.create({
-    //baseURL: 'http://acompany.dev/api', // WIN
-    baseURL: 'http://homestead.test/api', // MAC
+    baseURL: process.env.APP_SERVICE_URL,
     timeout: 0
 })
 
 service.interceptors.request.use(
     config=> {
-        // 添加token
-        config.headers['Authorization'] = 'Bearer '+store.getters.user.GetToken
+        // 如果store里没有token取cookie里的
+        let token = store.getters.user.GetToken
+
+        if('' === token){
+            token = getToken()
+            // 重新设置store里的token
+            store.commit('SET_TOKEN',token)
+        }
+
+        // 请求的时候带上
+        config.headers['Authorization'] = 'Bearer '+token
         return config
     },
     error=>{
         // Do something with request error
         //console.log(error) // for debug
         Promise.reject(error)
-    }
-    
-)
-
-service.interceptors.response.use(
-    response=>{
-        if(0 != response.data.code){
-            // todo 给出警告
-        }
-        else{
-            return response
-        }
-    },
-    error=>{
-        router.push('/')
-        return error
-    }
+    }   
 )
 
 export default service

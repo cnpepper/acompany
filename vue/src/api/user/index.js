@@ -2,9 +2,9 @@
 import request from '@/utils/request.js'
 
 // 使用 laravel passport 
-export function axUserLogin(email,password){
+export function apiLogin(email,password){
     return request({
-        url:'/user/login',
+        url:'api/user/login',
         method:'post',
         data:{
             email,
