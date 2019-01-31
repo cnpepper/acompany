@@ -5,10 +5,10 @@
         <el-input v-model="loginForm.email" placeholder="请输入邮箱账号"></el-input>
       </el-form-item>
       <el-form-item label="密码">
-        <el-input type="password" v-model="loginForm.pass" placeholder="请输入账号密码"></el-input>
+        <el-input type="password" v-model="loginForm.password" placeholder="请输入账号密码"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="LoginSubmit()">登录</el-button>
+        <el-button @click="LoginSubmit()">登录</el-button>    
       </el-form-item>
     </el-form>
   </el-card>
@@ -23,7 +23,7 @@
     },
     methods:{
       LoginSubmit(){
-        this.$store.dispatch('userLogin').then(resolve=>{
+        this.$store.dispatch('user/login',this.loginForm).then(resolve=>{
           if(undefined !== resolve && 0 === resolve){
             // 登录成功跳转
             this.$router.push('/app')

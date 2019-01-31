@@ -29,6 +29,7 @@
             AppFooter
         },
         created() {
+            // 
             // 初始化窗口大小
             this.$store.commit('app/SET_CLIENT_SIZE', {
                 height: document.documentElement.clientHeight,

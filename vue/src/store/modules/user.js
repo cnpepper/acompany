@@ -20,7 +20,7 @@ const mutations = {
 }
 
 const actions = {
-  userLogin(context, data) {
+  login(context, data) {
     return new Promise((resolve, reject) => {
       // 登录
       apiLogin(data.email,data.password).then(response=>{
