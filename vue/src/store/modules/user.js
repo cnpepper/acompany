@@ -1,5 +1,5 @@
 // 加载API接口
-import {apiLogin} from '@/api/user'
+import {apiLogin,apiLogout} from '@/api/user'
 import {setToken} from '@/utils/auth'
 
 const state = {
@@ -38,6 +38,17 @@ const actions = {
         reject(error)
       })
     })
+  },
+  logout(context){
+    return new Promise((resolve, reject) => {
+      apiLogout().then(response=>{
+        let code = response.data.code
+        context.commit('REMOVE_TOKEN')
+        resolve(code)
+      }).catch(error=>{
+        reject(error)
+      })
+    }) 
   }
 }
 
