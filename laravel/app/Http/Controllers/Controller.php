@@ -10,15 +10,20 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-	
-	public function __construct(){}
 
-	public function returnInfo($code=0,$message='ok',$result=''){
-		$res = array(
-			'code'=>$code,
-			'message'=>$message,
-			'result'=>$result
-		);
-		return response()->json($res);
-	}
+	public const TASK_OK = 0;
+	public const TASK_UNAUTH = 401;
+    public const TASK_FAIL = 500;
+
+    public function __construct(){}
+
+    public function returnInfo(int $code, string $message, array $result = [])
+    {
+        $data = array(
+            'code' => $code,
+            'message' => $message,
+            'result' => $result,
+        );
+        return response()->json($data);
+    }
 }

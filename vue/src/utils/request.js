@@ -11,7 +11,7 @@ const service = axios.create({
 service.interceptors.request.use(
     config=> {
         // 如果store里没有token取cookie里的
-        let token = store.getters['user/GetToken']
+        let token = store.getters['user/GetToken']+'1'
 
         if('' === token){
             token = getToken()
@@ -26,6 +26,7 @@ service.interceptors.request.use(
     error=>{
         // Do something with request error
         //console.log(error) // for debug
+        console.log(error)
         Promise.reject(error)
     }   
 )
