@@ -11,6 +11,7 @@ Vue.use(ElementUI);
 
 //公共的css文件
 import './assets/css/common.css'
+import './assets/css/animate.css'
 
 Vue.config.productionTip = false
 

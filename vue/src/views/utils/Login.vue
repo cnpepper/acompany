@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-card class="box-card">
     <el-form :model="loginForm" label-width="80px">
       <el-form-item label="邮箱">
@@ -12,6 +13,8 @@
       </el-form-item>
     </el-form>
   </el-card>
+  <div class="weizhi animated slideInRight">123</div>
+  </div>
 </template>
 
 <script>
@@ -39,5 +42,10 @@
 <style>
   .box-card {
     width: 480px;
+  }
+  .weizhi{
+    height:100px;
+    width:100px;
+    background-color:red;
   }
 </style>
