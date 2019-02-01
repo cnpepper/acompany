@@ -15,7 +15,7 @@
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>个人设置</el-dropdown-item>
                     <el-dropdown-item>修改密码</el-dropdown-item>
-                    <el-dropdown-item>退出登录</el-dropdown-item>
+                    <el-dropdown-item @click="logout()">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </el-col>
@@ -24,7 +24,21 @@
 
 <script>
     export default {
-
+        name:'app-header',
+        methods:{
+            logout(){
+                this.$store.dispatch('user/logout').then(resolve=>{
+                    if(0 !== resolve){
+                        this.$message.error('系统异常，退出登录失败！')
+                    }
+                    else{
+                        this.$router.push('/login')
+                    }
+                }).catch(error=>{
+                    this.$message.error('未知错误，退出登录失败！')
+                })
+            }
+        }
     }
 </script>
 

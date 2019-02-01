@@ -1,6 +1,6 @@
 // 加载API接口
 import {apiLogin,apiLogout} from '@/api/user'
-import {setToken} from '@/utils/auth'
+import {setToken,removeToken} from '@/utils/auth'
 
 const state = {
   token: ''
@@ -16,6 +16,10 @@ const mutations = {
   SET_TOKEN(state, token) {
     setToken(token)
     state.token = token
+  },
+  REMOVE_TOKEN(state) {
+    removeToken()
+    state.token = ''
   }
 }
 
@@ -43,7 +47,9 @@ const actions = {
     return new Promise((resolve, reject) => {
       apiLogout().then(response=>{
         let code = response.data.code
-        context.commit('REMOVE_TOKEN')
+        if(0 === code){
+          context.commit('REMOVE_TOKEN')
+        }
         resolve(code)
       }).catch(error=>{
         reject(error)
