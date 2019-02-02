@@ -13,16 +13,11 @@ const service = axios.create({
 
 service.interceptors.request.use(
     config => {
-        // 如果store里没有token取cookie里的
-        let token = store.getters['user/GetToken'] + '1'
-
-        if ('' === token) {
+        let token = store.getters['user/GetToken']
+        if (!token) {
             token = getToken()
-            // 重新设置store里的token
             store.commit('user/SET_TOKEN', token)
         }
-
-        // 请求的时候带上
         config.headers['Authorization'] = 'Bearer ' + token
         return config
     },
@@ -35,6 +30,7 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(function (response) {
     // Do something with response data
+    console.log(response)
     switch (response.data.code) {
         case 0:
             {
@@ -61,6 +57,19 @@ service.interceptors.response.use(function (response) {
     }
 }, function (error) {
     // Do something with response error
+    if (error.response) {
+        // 发送请求后，服务端返回的响应码不是 2xx   
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+    } else if (error.request) {
+        // 发送请求但是没有响应返回
+        console.log(error.request);
+    } else {
+        // 其他错误
+        console.log('Error', error.message);
+    }
+    console.log(error.config);
     return Promise.reject(error);
 });
 

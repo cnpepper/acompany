@@ -35,7 +35,7 @@ const actions = {
         let code = response.data.code
         if(0 === code){
           // 保持token值到cookie和store
-          context.commit('SET_TOKEN',response.data.token)
+          context.commit('SET_TOKEN',response.data.result.token)
         }
         resolve(code)
       }).catch(error=>{
