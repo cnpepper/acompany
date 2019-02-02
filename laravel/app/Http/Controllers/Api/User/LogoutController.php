@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class LogoutController extends Controller
 {
     //
-    public function logout()
+    public function index()
     {
         try {
             if (Auth::guard('api')->check()) {
@@ -17,7 +17,7 @@ class LogoutController extends Controller
             Auth::guard('api')->user()->token()->delete();
             $this->returnInfo(parent::TASK_OK, 'OK');
         } catch (\Exception $e) {
-            $this->returnInfo(parent::TASK_FAIL,'退出登录失败');
+            $this->returnInfo(parent::TASK_UNAUTH,'退出登录失败');
         }
     }
 }

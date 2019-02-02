@@ -12,3 +12,10 @@ export function apiLogin(email,password){
         }
     })
 }
+
+export function apiLogout(){
+    return request({
+        url:'api/user/logout',
+        method:'post'
+    })
+}

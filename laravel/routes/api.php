@@ -25,6 +25,7 @@ $api->version('v1', function ($api) {
         $api->group(['prefix'=>'user'],function($api){
             //$api->post('user_register', 'App\Http\Controllers\Api\LoginController@register'); 暂时没实现
             $api->post('login', 'App\Http\Controllers\Api\User\LoginController@index'); 
+            $api->post('logout', 'App\Http\Controllers\Api\User\LogoutController@index'); 
         });
 
         /**
