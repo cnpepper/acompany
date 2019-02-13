@@ -4,8 +4,9 @@
             <slot name="menu"></slot>
         </aside>
         <el-container>
-            <el-header style="height:30px;">
-                <slot name="header"></slot>
+            <el-header style="height:80px;">
+                <el-row><slot name="header"></slot></el-row>
+                <el-row><slot name="tags"></slot></el-row>
             </el-header>
             <el-main>
                 <slot></slot>

@@ -27,7 +27,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // 全局导航守卫
   // 检查token状态如果token正常跳转到app页
-  let token = store.getters['user/GetToken']
+  /*let token = store.getters['user/GetToken']
   if (!token) {
     token = getToken()
   }
@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
           return next()
         }
       }
-  }
+  }*/
 })
 
 export default router

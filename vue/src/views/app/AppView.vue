@@ -6,6 +6,9 @@
         <template slot="header">
             <app-header></app-header>
         </template>
+        <template slot="tags">
+            <the-tag-menu></the-tag-menu>
+        </template>
         <template>
             <router-view></router-view>
         </template>
@@ -20,13 +23,15 @@
     import AppMenu from "@/views/app/AppMenu"
     import AppHeader from "@/views/app/AppHeader"
     import AppFooter from "@/views/app/AppFooter"
+    import TheTagMenu from "@/components/common/TheTagMenu"
     export default {
         name: 'app',
         components: {
             AppLayout,
             AppMenu,
             AppHeader,
-            AppFooter
+            AppFooter,
+            TheTagMenu
         },
         created() {
             // 
