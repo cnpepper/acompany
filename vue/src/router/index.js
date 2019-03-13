@@ -32,7 +32,7 @@ router.beforeEach((to, from, next) => {
     token = getToken()
   }
   // 进行token检查
-  switch (to.path) {
+  /*switch (to.path) {
     case '/':
     case '/login':
       {
@@ -52,7 +52,7 @@ router.beforeEach((to, from, next) => {
           return next()
         }
       }
-  }
+  }*/
 })
 
 export default router

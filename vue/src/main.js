@@ -9,6 +9,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+// 剪切板
+import clipboard from 'clipboard';
+//注册到vue原型上
+Vue.prototype.clipboard = clipboard;
+
 //公共的css文件
 import './assets/css/common.css'
 import './assets/css/animate.css'
