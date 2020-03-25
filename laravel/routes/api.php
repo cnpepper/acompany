@@ -14,7 +14,7 @@
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1',function ($api) {
-    $api->group(['middleware' => ['auth:api', 'cors']], function ($api) {
+    $api->group(['middleware' => ['client']], function ($api) {
         $api->post('test', 'App\Http\Controllers\Test\Passport\Client\TestApiController@getInfo');
     }); 
 });
