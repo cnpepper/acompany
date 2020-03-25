@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'cors' => \Barryvdh\Cors\HandleCors::class, // API允许跨域请求，可以带上这个中间件
         'befor'=> \App\Http\Middleware\BeforRequest::class, // 用户请求路由前记录信息
+        'client' => CheckClientCredentials::class,
     ];
 }
