@@ -1,58 +1,24 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import {
-  getToken
-} from '@/utils/auth'
-Vue.use(Router)
-import store from '@/store'
-import AppViewRoutes from '@/router/modules/app'
+import Vue from "vue";
+import Router from "vue-router";
+Vue.use(Router);
 
-const Login = () => import('@/views/utils/Login')
-const App = () => import('@/views/app/AppView')
-
+// 路由
+const App = () => import("@/views/AppPage.vue");
+import AppViewRoutes from "@/router/modules/app.js";
 
 const router = new Router({
-  routes: [{
-      path: '/login',
-      component: Login
-    },
+  routes: [
     {
-      path: '/app',
+      path: "/",
       component: App,
-      children: AppViewRoutes
-    }
-  ]
-})
+      children: AppViewRoutes,
+    },
+  ],
+});
 
 router.beforeEach((to, from, next) => {
   // 全局导航守卫
-  // 检查token状态如果token正常跳转到app页
-  let token = store.getters['user/GetToken']
-  if (!token) {
-    token = getToken()
-  }
-  // 进行token检查
-  /*switch (to.path) {
-    case '/':
-    case '/login':
-      {
-        // 检查token状态如果token正常跳转到app页
-        if ('undefined' === token || !token) {
-          return next()
-        } else {
-          return next('/app')
-        }
-      }
-    default:
-      {
-        // 检查token状态如果token正常跳转到app页
-        if ('undefined' === token || !token) {
-          return next('/login')
-        } else {
-          return next()
-        }
-      }
-  }*/
-})
+  next();
+});
 
-export default router
+export default router;
